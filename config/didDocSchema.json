@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "id": {
+      "type": "string"
+    },
+    "publicKey": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "controller": {
+              "type": "string"
+            },
+            "publicKeyPem": {
+              "type": "string"
+            },
+            "publicKeyJwk": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "anyOf": [
+            { "required": ["publicKeyPem"] },
+            { "required": ["publicKeyJwk"] }
+          ],
+          "required": ["controller", "id", "type"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "controller": {
+              "type": "string"
+            },
+            "publicKeyPem": {
+              "type": "string"
+            },
+            "publicKeyJwk": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "anyOf": [
+            { "required": ["publicKeyPem"] },
+            { "required": ["publicKeyJwk"] }
+          ],
+          "required": ["controller", "id", "type"]
+        }
+      ]
+    },
+    "proof": {
+      "type": "object",
+      "properties": {
+        "creator": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "type": "string"
+        },
+        "signatureValue": {
+          "type": "string"
+        }
+      },
+      "required": ["creator", "created", "type", "signatureValue"]
+    }
+  },
+  "@context": {
+    "type": "string"
+  },
+  "updated": {
+    "type": "string",
+    "format": "date-time"
+  },
+  "required": ["@context", "updated", "created", "id", "publicKey", "proof"]
+}

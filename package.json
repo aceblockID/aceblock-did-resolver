@@ -1,0 +1,25 @@
+{
+  "name": "did-resolver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon did-resolver.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "ajv": "^6.12.3",
+    "ethereum-address": "0.0.4",
+    "express": "^4.17.1",
+    "ipfs-http-client": "^40.1.0",
+    "schemaorg-jsd": "^0.16.0",
+    "web3": "^1.2.4",
+    "winston": "^3.2.1"
+  }
+}
