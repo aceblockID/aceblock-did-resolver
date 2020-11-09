@@ -42,7 +42,7 @@ const test = {
 
 const prod = {
     app: {
-        port: 8085,
+        port: 8080,
         route: '/1.0/identifiers',
     },
     bc: {

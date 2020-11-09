@@ -22,10 +22,13 @@ exports.get_DID_document = async function (req, res) {
     // removes unnecessary commas from request parameter
     let uids = req.replace(/(,)+/g, '$1').replace(/^,|,$/g, '');
     let DIDs = [];
-
+    // result type (a - array, s - single)
+    let resType = 'a';
     try {
         if (valUidRequestParameter(uids)) {
             let ids = uids.split(",");
+
+            if (ids.length === 1) resType = 's';
 
             for (i = 0; i < ids.length; i++) {
                 let id = ids[i].split(":");
@@ -41,7 +44,12 @@ exports.get_DID_document = async function (req, res) {
     } catch (error) {
         throw error;
     }
-    res.json(DIDs);
+
+    if ( resType === 's' ) {
+        res.json(DIDs[0]);
+    } else {
+        res.json(DIDs);
+    }
 };
 
 function get_ACE_DID_document(req, uid) {
